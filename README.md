@@ -17,10 +17,21 @@ Initialisation du projet pour laravel 7
 
 Commande principale artisan 
 
-- php artisan make:Model Models/NomModel
+- php artisan make:model Models/NomModel
 - php artisan route:liste
-- php artisan make:migratiin
+- php artisan make:migration
 - php artisan migrate
 - php artisan db:seed
-- php artisan make:Controller NomController
+- php artisan make:controller NomController
+- php artisan cache:clear
+- php artisan make:middleware NomMIddleware
 
+Route et réponses
+
+- création de préfixes pour regrouper un ensemble de route concernant une partie du site:
+=> Route::group(['prefix'=>'admin'], function() {
+    "Déclaration des routes"
+}) ;
+- création de middleware globaux pour protéger les acces. 
+
+=> 
