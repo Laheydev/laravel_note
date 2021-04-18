@@ -34,4 +34,8 @@ Route et réponses
 }) ;
 - création de middleware globaux pour protéger les acces. 
 
-=> 
+=> création du middleware avec les règles dans le bande puis déclaration du middleware dans app/http/kennel.php
+Dans le routeMiddleware
+=> ensuite assignation du middleware à une route ou un ensemble
+=> Route::middleware(['admin'])->group .... 
+
