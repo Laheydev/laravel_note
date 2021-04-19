@@ -28,14 +28,49 @@ Commande principale artisan
 
 Route et réponses
 
-- création de préfixes pour regrouper un ensemble de route concernant une partie du site:
+- création de préfixes pour reg'*4fzrouper un ensemble de route concernant une partie du site:
 => Route::group(['prefix'=>'admin'], function() {
     "Déclaration des routes"
 }) ;
 - création de middleware globaux pour protéger les acces. 
 
-=> création du middleware avec les règles dans le bande puis déclaration du middleware dans app/http/kennel.php
+=> création du middleware avec les règles dans le bsande puis déclaration du middleware dans app/http/kennel.php
 Dans le routeMiddleware
 => ensuite assignation du middleware à une route ou un ensemble
 => Route::middleware(['admin'])->group .... 
+
+Model
+
+- déclaration des propriétés de type date pour les manipuler avec carbon 
+=> protected $dates =['propriété'];
+- déclaration des propriétés definissables avec la méthode create
+=> protected $fillable =['propriété']
+- utilisation du softdelete
+=> avec SoftDelete au model et ajout d un champ date deleted_at
+
+Relations
+
+-one to one
+=> relation unique entre deux entités 
+=> ajout de la clé étrangère dans la table appartenant
+=> ajout d une methode au singulier de chaque entite dans l autre
+=> hasOne dans la table possédante
+=> belongsTo dans la table appartenante
+
+- one to many
+=> une entité ayant des relations avec plusieurs autres entités
+=> ajout de la clé étrangère dans la table appartenante
+=> ajout d une méthode au pluriel dans le model possédante avec 
+=> ajout d une méthode utilisée singulier dans le model appartenant
+=> hasMany dans la possédante
+=> belongsTo dans l appartenante
+
+- Many to many
+=> relation multiples entre plusieurs entites
+=> création d une table pivot sans model
+=> ajout des clés étrangères de chaque entités dans le pivot
+=> ajout de méthodes au pluriel dans chaque model
+=> belongsToMany dans chaque modèle
+
+
 
